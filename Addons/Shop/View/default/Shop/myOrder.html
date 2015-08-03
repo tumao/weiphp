@@ -1,0 +1,64 @@
+<include file="Public/mobile_head"/>
+<link rel="stylesheet" type="text/css" href="{:ADDON_PUBLIC_PATH}/css/myOrder.css">
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/js/myorder.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/js/cartList.js"></script>
+<body id="shop">
+<div class="top_navs">
+	<div class="mainpage">
+		<a href="/index.php?s=/addon/Shop/Shop/index.html"><span>首页</span></a>
+	</div>
+	<div class="nav_detail">
+		<a href="#"><span>我的订单</span></a>
+	</div>
+</div>
+<div class="container">
+	<volist name="list" id="vo">
+		<div class="order_cell order_{$vo['id']}">
+			<div class="order_status">
+				<if condition="$vo['order_status'] =='inorder' ">
+					订单未支付
+				<elseif condition="$vo['order_status'] == 'paied'" />
+					已经支付成功，卖家尚未发货
+				<elseif condition="$vo['order_status'] == 'cancled'" />
+					订单已经取消
+				<else />
+					已经发货/交易成功
+				</if>
+			</div>
+			<div class="order_content">
+				<img src="#" style="float:left; height:150px; ">
+				<div class="float:left;">
+					<div class="title">
+						{$vo['product_field']}
+					</div>
+					<div>
+						共计 {$vo['count']}件商品,单价{$vo['unit_price']},&nbsp;合计 <span>{$vo['total_fee']}</span>
+					</div>
+				</div>
+			</div>
+			<div class="user_edit">
+				<if condition="$vo['order_status'] == 'inorder'" >	<!-- 已经下单 -->
+					<input type="button" value="取消订单" onclick="Order.cancel({$vo['id']})">
+					<input type="button" value="订单结算" onclick="Order.jiesuan({$vo['id']})">
+				<elseif condition="$vo['order_status'] == 'cancled'" /><!-- 订单取消 -->
+					<span>&nbsp;</span>
+				<elseif condition="$vo['order_status'] == 'orderOk'" /><!-- 订单成交 -->
+					<a href="/index.php?s=/addon/Shop/Comment/addComments/oid/{$vo['id']}/id/{$vo['pid']}.html">去评论</a>
+				<else />
+					<input type="button" value="申请退货">
+					<input type="button" value="确认收货">
+				</if>
+			</div>
+		</div>
+	</volist>
+</div>
+<!-- 底部导航 -->
+{$footer_html}
+<!-- 统计代码 -->
+<notempty name="config.code">
+<p class="hide bdtongji">
+{$config.code}
+</p>
+</notempty>
+</body>
+</html>

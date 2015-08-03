@@ -1,0 +1,49 @@
+.top_navs{
+	height: 50px;
+	font-size: 15px;
+	background: #ed145b;
+	color: #ffffff;
+}
+.mainpage{
+	float: left;
+	margin: 5px;
+	width: 15%;
+	min-width: 30px;
+	text-align: right;
+	line-height: 50px;
+}
+.nav_detail{
+	float: left;
+	width: 70%;
+	text-align: center;
+	line-height: 50px;
+}
+.nav_cart{
+	/*width: 15%;*/
+	/*min-width: 70px;*/
+	line-height: 50px;
+}
+.top_navs a{
+	color: #fff;
+}
+img{
+	float: left;
+	margin-right: 20px;
+}
+.container{
+	background: #ffffff;
+}
+.order_cell{
+	margin: 0px 15px;
+	border-bottom: 3px solid #9c9c9c;
+}
+.user_edit{
+	clear: both;
+	padding: 15px;
+}
+.order_status{
+	padding: 15px;
+}
+.title{
+	height: 100px;
+}

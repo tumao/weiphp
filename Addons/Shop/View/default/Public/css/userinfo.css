@@ -1,0 +1,32 @@
+.container{
+	padding: 10px;
+}
+.userinfo{
+	height: 120px;
+}
+.photo img{
+	height: 100px;
+	border-radius: 10px;
+}
+.userinfo_detail span{
+	display: block;
+}
+.userinfo_detail > span{
+	height: 70px;
+}
+.asset{
+	border-top: 10px solid #f1f1f1;
+	padding-top: 10px;
+	clear: both;
+}
+.asset_val{
+	margin-left: 30px;
+}
+.asset_title{
+	display: block;
+	float: left;
+	width: 50%;
+}
+.asset_val{
+	width: 70%;
+}
